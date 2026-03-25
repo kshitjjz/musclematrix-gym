@@ -2,11 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$host = 'mysql-ngp.railway.internal';
-$db   = 'railway';
-$user = 'root';
-$pass = 'RlTDNGMdtRElMscZWmAFdDcrQshdndRQ';
+
 $port = '3306';
+$host = getenv("mysql-ngp.railway.internal");
+$user = getenv("root");
+$password = getenv("RlTDNGMdtRElMscZWmAFdDcrQshdndRQ");
+$db = getenv("railway");
+
+$conn = new mysqli($host, $user, $password, $db);
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
