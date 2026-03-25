@@ -2,11 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$host = '127.0.0.1';
-$db   = 'gym_app';
-$user = 'postgres';
-$pass = 'NewSecurePassword123';
-$port = '5432';
+$host = 'mysql-ngp.railway.internal';
+$db   = 'railway';
+$user = 'root';
+$pass = 'RlTDNGMdtRElMscZWmAFdDcrQshdndRQ';
+$port = '3306';
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
