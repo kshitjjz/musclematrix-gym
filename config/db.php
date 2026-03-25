@@ -1,25 +1,15 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-
-$port = '3306';
-$host = getenv("mysql-ngp.railway.internal");
+$host = getenv("mysql.railway.internal");
 $user = getenv("root");
-$password = getenv("uTrOIpJusWAcaIaRutUhegNASYwffjKJ");
+$password = getenv("uABBMhnmvXRFNhmZDDKAinCUeOEuizXN");
 $db = getenv("railway");
+$port = getenv("3306");
 
-$conn = new mysqli($host, $user, $password, $db);
+$conn = new mysqli($host, $user, $password, $db, $port);
 
-try {
-    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    if (isset($_GET['action']) || isset($_POST['action'])) {
-        header('Content-Type: application/json');
-        die(json_encode(["error" => "Database connection failed"]));
-    } else {
-        die("Database connection failed");
-    }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
 ?>
