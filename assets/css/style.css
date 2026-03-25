@@ -1,0 +1,393 @@
+/* ===================================
+   MUSCLEMATRIX COLOR THEME
+   Primary: #DC2626 (Red-600)
+   Secondary: #EF4444 (Red-500)
+   Accent: #F87171 (Red-400)
+=================================== */
+
+:root {
+    --primary-red: #DC2626;
+    --secondary-red: #EF4444;
+    --accent-red: #F87171;
+    --dark-red: #B91C1C;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: #0a0a0a url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80') center/cover fixed;
+    color: #e5e7eb; 
+    min-height: 100vh; 
+}
+
+body::before { 
+    content: ''; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(20, 20, 20, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%);
+    pointer-events: none; 
+    z-index: 0; 
+}
+
+.page-content { animation: fadeIn 0.5s ease-in-out; position: relative; z-index: 1; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Glassmorphism Cards */
+.glass-card { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(20px) saturate(180%); 
+    -webkit-backdrop-filter: blur(20px) saturate(180%); 
+    border: 1.5px solid rgba(255, 255, 255, 0.12); 
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+    transition: all 0.3s ease; 
+}
+
+.glass-card:hover { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1.5px solid rgba(220, 38, 38, 0.3); 
+    box-shadow: 0 12px 40px 0 rgba(220, 38, 38, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15); 
+    transform: translateY(-2px); 
+}
+
+/* Glass Header */
+header { 
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(15, 15, 15, 0.85) 100%) !important; 
+    backdrop-filter: blur(20px) saturate(180%); 
+    -webkit-backdrop-filter: blur(20px) saturate(180%); 
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.1) !important; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Glass Inputs */
+input, select, textarea { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%) !important; 
+    backdrop-filter: blur(12px) saturate(180%); 
+    -webkit-backdrop-filter: blur(12px) saturate(180%); 
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important; 
+    border-radius: 10px;
+    color: #e5e7eb !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease; 
+}
+
+input:focus, select:focus, textarea:focus { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important; 
+    border: 1.5px solid rgba(220, 38, 38, 0.5) !important; 
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12); 
+    outline: none; 
+}
+
+/* Liquid Glass Buttons - Primary CTA */
+.cta-button { 
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(185, 28, 28, 0.2) 100%); 
+    backdrop-filter: blur(20px) saturate(180%); 
+    -webkit-backdrop-filter: blur(20px) saturate(180%); 
+    border: 2px solid rgba(255, 255, 255, 0.18) !important; 
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 8px 32px 0 rgba(220, 38, 38, 0.3),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 8px 8px 0 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.cta-button:hover::after {
+    left: 100%;
+}
+
+.cta-button:hover { 
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.35) 0%, rgba(185, 28, 28, 0.3) 100%); 
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px); 
+    box-shadow: 
+        0 12px 40px 0 rgba(220, 38, 38, 0.5),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary Liquid Glass Buttons */
+button:not(.cta-button), .btn, a.btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+button:not(.cta-button)::before, .btn::before, a.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    border-radius: 8px 8px 0 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+button:not(.cta-button):hover, .btn:hover, a.btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Red Primary Buttons */
+.bg-emerald-500, .bg-emerald-600 {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(185, 28, 28, 0.2) 100%) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 8px 32px rgba(220, 38, 38, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.bg-emerald-500::before, .bg-emerald-600::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 10px 10px 0 0;
+    pointer-events: none;
+}
+
+.bg-emerald-500:hover, .bg-emerald-600:hover {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.35) 0%, rgba(185, 28, 28, 0.3) 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 
+        0 12px 40px rgba(220, 38, 38, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Gray Glass Buttons */
+.bg-gray-700, .bg-gray-600, .bg-gray-800 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.bg-gray-700::before, .bg-gray-600::before, .bg-gray-800::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    border-radius: 10px 10px 0 0;
+    pointer-events: none;
+}
+
+.bg-gray-700:hover, .bg-gray-600:hover, .bg-gray-800:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Red Gradient Glass Buttons */
+.bg-gradient-to-r {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.3) 0%, rgba(185, 28, 28, 0.25) 100%) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    box-shadow: 
+        0 8px 32px rgba(220, 38, 38, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-gradient-to-r::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%);
+    border-radius: 12px 12px 0 0;
+    pointer-events: none;
+}
+
+.bg-gradient-to-r::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.bg-gradient-to-r:hover::after {
+    opacity: 1;
+}
+
+.bg-gradient-to-r:hover {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.4) 0%, rgba(185, 28, 28, 0.35) 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 
+        0 12px 40px rgba(220, 38, 38, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Glass Modals */
+.modal-glass { 
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%) !important; 
+    backdrop-filter: blur(30px) saturate(180%); 
+    -webkit-backdrop-filter: blur(30px) saturate(180%); 
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important; 
+    border-radius: 20px;
+    box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+}
+
+/* Active States */
+.schedule-day-btn.active, .tracker-tab-btn.active, .class-filter-btn.active { 
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.35) 0%, rgba(185, 28, 28, 0.3) 100%) !important; 
+    color: #ffffff !important; 
+    border: 2px solid rgba(220, 38, 38, 0.5) !important; 
+    box-shadow: 0 6px 25px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    position: relative;
+    z-index: 10;
+}
+
+.tracker-tab-btn.active { 
+    color: #ffffff !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+}
+
+/* Inactive Tab Buttons */
+.schedule-day-btn, .tracker-tab-btn, .class-filter-btn {
+    color: #e5e7eb !important;
+    position: relative;
+    z-index: 5;
+    font-weight: 500;
+}
+
+/* Force all button text to be visible */
+button *, .btn *, a.btn * {
+    color: inherit !important;
+    opacity: 1 !important;
+}
+
+/* Ensure text is always on top */
+button span, .btn span, a.btn span,
+button::before, .btn::before, a.btn::before {
+    position: relative;
+    z-index: 2;
+}
+
+/* Glass Progress Bars */
+.progress-bar-glass { 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%); 
+    backdrop-filter: blur(12px) saturate(180%); 
+    -webkit-backdrop-filter: blur(12px) saturate(180%); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow Effects */
+.glow-emerald, .glow-red { 
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.4), 0 0 50px rgba(220, 38, 38, 0.2); 
+}
+
+.glow-blue { 
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.4), 0 0 50px rgba(239, 68, 68, 0.2); 
+}
+
+/* Text Colors - Red Theme */
+.text-emerald-400, .text-emerald-500, .text-emerald-600 {
+    color: #EF4444 !important;
+}
+
+.text-emerald-300 {
+    color: #F87171 !important;
+}
+
+/* Background Colors - Red Theme */
+.bg-emerald-500\/20 {
+    background-color: rgba(220, 38, 38, 0.2) !important;
+}
+
+.border-emerald-400 {
+    border-color: #DC2626 !important;
+}
+
+.shadow-emerald-500\/10 {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) { .split-hero { display: none; } }
