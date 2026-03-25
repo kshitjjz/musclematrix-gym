@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $port = '3306';
 $host = getenv("mysql-ngp.railway.internal");
 $user = getenv("root");
-$password = getenv("RlTDNGMdtRElMscZWmAFdDcrQshdndRQ");
+$password = getenv("uTrOIpJusWAcaIaRutUhegNASYwffjKJ");
 $db = getenv("railway");
 
 $conn = new mysqli($host, $user, $password, $db);
