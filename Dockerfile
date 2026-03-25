@@ -1,14 +1,17 @@
-FROM php:8.2-apache
+FROM php:8.1-apache
 
-# Disable conflicting MPM modules
-RUN a2dismod mpm_event || true
-RUN a2dismod mpm_worker || true
-RUN a2enmod mpm_prefork
-
-# Enable PHP extensions
+# Install mysqli
 RUN docker-php-ext-install mysqli
 
-# Copy project files
+# Enable Apache rewrite (optional but useful)
+RUN a2enmod rewrite
+
+# Copy project
 COPY . /var/www/html/
 
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html
+
 EXPOSE 80
+
+CMD ["apache2-foreground"]
